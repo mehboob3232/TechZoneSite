@@ -3,6 +3,7 @@ import axios from "axios";
 import Search from './Search';
 import JobCategory from './JobCategory';
 import Jobs from './Jobs';
+import HowItWork from '../components/HowItWork';
 
 
 function Home() {
@@ -40,7 +41,7 @@ function Home() {
       <div id='element_within_div'>
         <Jobs jobs={jobs} />
       </div>
-
+    <HowItWork/>
     </>
   )
 }

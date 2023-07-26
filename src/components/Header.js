@@ -19,8 +19,9 @@ function Header() {
                 <div className="navbar-nav ms-auto p-4 p-lg-0">
                     <Link to="/" className="nav-item nav-link active">Home</Link>
                     <Link to="/about" className="nav-item nav-link">About</Link>
-                    <Link to="/joblist" className="nav-item nav-link">Jobs</Link>
-                    <Link to="/category" className="nav-item nav-link">Category</Link>
+                    <Link to="/howitwork" className="nav-item nav-link">How it Work</Link>
+
+                   
                     <Link to="/contact" className="nav-item nav-link">Contact</Link>
                     <Link to="/admin" className="nav-item nav-link">Admin</Link>
                 </div>
