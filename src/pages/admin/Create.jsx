@@ -1,8 +1,11 @@
 import React from 'react'
+import CreateJob from '../CreateJob'
 
 const Create = () => {
   return (
-    <div>Create</div>
+    <>
+    <CreateJob/>
+    </>
   )
 }
 
