@@ -1,8 +1,9 @@
+
 import React from 'react'
 
-const Details = () => {
+function Details() {
   return (
-    <div>Details admin </div>
+    <div>Details</div>
   )
 }
 

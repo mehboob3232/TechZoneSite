@@ -2,7 +2,7 @@ import React, {useContext, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 
-function OnlyAuth(props) {
+function OnlyAdminAuth(props) {
     const navigator = useNavigate();
     const UserContext = useContext(AuthContext);
 
@@ -15,4 +15,4 @@ function OnlyAuth(props) {
         <>{props.children}</>
     )
 }
-export default OnlyAuth
+export default OnlyAdminAuth

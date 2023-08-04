@@ -7,7 +7,7 @@ function OnlyAuth(props) {
     const UserContext = useContext(AuthContext);
 
     useEffect(() => {
-        if(UserContext.user === null){
+        if(UserContext.user?.role != "user"){
             navigator("/login",{replace:true});
         }
     },[]);

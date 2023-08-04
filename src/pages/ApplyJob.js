@@ -2,7 +2,7 @@ import axios from "axios"
 import { useContext, useState } from "react"
 import { AuthContext } from "../context/AuthContext";
 import { useParams } from "react-router-dom";
-import apimg from "../img/applyjob.jpg";
+import apimg from "../img/applyjob.png";
 
 function ApplyJob() {
   const [contactinformation,setContactInformation] = useState("");
