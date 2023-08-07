@@ -32,7 +32,7 @@ const handleSubmit = () =>{
     ).then((res)=>{
         console.log(res.data)
         if(res.data.status == true){
-            alert("data update successfully");
+            alert("job update successfully");
             navigate("/admin/jobsAdmin")
         } else {
             if(res.data.status == false){

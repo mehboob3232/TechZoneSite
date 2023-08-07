@@ -1,11 +1,11 @@
 
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function JobsAdmin() {
     const [jobs, setJobs] = useState([]);
+    const navigate = useNavigate();
     useEffect(() => {
         axios
             .get("http://localhost:3004/alljobs")
@@ -19,7 +19,15 @@ function JobsAdmin() {
 
     function deleteJob(id) {
         axios.delete(`http://localhost:3004/delete-job/${id}`).then((res) => {
-
+                    console.log(res.data);
+                    if(res.data.status == true){
+                        alert("job delete successfully");
+                        navigate("/admin/jobsAdmin")
+                    } else {
+                        if(res.data.status == false){
+                            alert("something went wrong"); 
+                        }
+                    }
                 axios.get("http://localhost:3004/alljobs").then((res) => {
 
                         setJobs(res.data.jobs);
