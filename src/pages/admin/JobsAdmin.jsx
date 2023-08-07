@@ -18,14 +18,10 @@ function JobsAdmin() {
     }, []);
 
     function deleteJob(id) {
-        alert("Request for delet is hitted ...")
-        return
-        axios
-            .delete(`http://localhost:3004/delete-job/${id}`)
-            .then((res) => {
-                axios
-                    .get("http://localhost:3004/alljobs")
-                    .then((res) => {
+        axios.delete(`http://localhost:3004/delete-job/${id}`).then((res) => {
+
+                axios.get("http://localhost:3004/alljobs").then((res) => {
+
                         setJobs(res.data.jobs);
                     })
                     .catch((err) => {
@@ -36,24 +32,19 @@ function JobsAdmin() {
                 console.log(err);
             });
     }
-
-
-    function updateJob(id) {
-        alert("yes");
-    }
     return (
         <>
-            <div className="container">
-                <div className="createMovie">
-                    <Link to="/create">Create-Movie</Link>
-                </div>
-                <table class="table maindiv">
+            <div className="container table-responsive">
+                <table class="table maindiv ">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Movie Name</th>
+                            <th scope="col">Job Title</th>
                             <th scope="col">Image</th>
-                            <th scope="col">Genre</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Location</th>
+                            <th scope="col">Salary</th>
+                            <th scope="col">Position type</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -64,31 +55,26 @@ function JobsAdmin() {
                                 <tbody>
                                     <tr>
                                         <th scope="row">{index + 1}</th>
-                                        <td style={{ width: "350px" }}>
+                                        <td>
                                             {job.title}
-                                            <br></br>Rating: {job.salary}
-                                            <br></br> <img src="" />
-                                            <img src="{star}" />
-                                            <img src="{star}" />
                                         </td>
                                         <td>
                                             <img
-                                                src="{movie.image}"
-                                                style={{ width: "180px", height: "100px" }}
+                                                src={job.image}
+                                                style={{ width: "130px", height: "110px" }}
                                             />
                                         </td>
-                                        <td>{ }</td>
+                                        <td>{job.category}</td>
+                                        <td>{job.location}</td>
+                                        <td>{job.salary}</td>
+                                        <td>{job.positiontype}</td>
                                         <td>
-                                            <button
-                                                onClick={() => {
-                                                    deleteJob(job.id);
-                                                }}
-                                                className="btn btn-dark border-white"
-                                            >
+                                            <button onClick={() => { deleteJob(job.id)}}
+                                                className="btn btn-danger"style={{ width: "100px", borderRadius: "5px",marginBottom:"8px" }} >
                                                 Delete
                                             </button>
                                             <br />
-                                            <button ><Link to={`/admin/updateAdmin/${job.id}`}>update</Link></button>
+                                            <button className='btn btn-info' style={{ width: "100px", borderRadius: "5px" }} ><Link className='text-white' to={`/admin/updateAdmin/${job.id}`}>update</Link></button>
 
                                         </td>
                                     </tr>

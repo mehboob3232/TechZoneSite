@@ -1,15 +1,8 @@
 
 import axios from 'axios';
-import React, { useEffect, useRef, useState } from 'react'
-
-import { useParams } from 'react-router-dom'
-
-
-
+import React, { useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 function UpdateJob() {
-
-    const count = useRef(0);
-
 
     const [title, setTitle] = useState("");
     const [location, setLocation] = useState("");
@@ -25,70 +18,114 @@ function UpdateJob() {
     const [email, setEmail] = useState("");
 
     const id = useParams().id;
-    const [job, setJob] = useState([]);
-    useEffect(() => {
-        axios
-            .get(`http://localhost:3004/job/${id}`)
-            .then((res) => {
-                setJob(res.data.jobs);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    }, []);
-
-    const handleSubmit = () => {
-
-        if (title && image && location && description && salary && positiontype && category && education && responsibility && company && mobilenumber && email) {
-            const jobData = {
-                title: title, image: image, location: location, description: description, salary: salary, positiontype: positiontype, category: category, education: education,
-                responsibility: responsibility, company: company, mobilenumber: mobilenumber, email: email
-            }
-            axios.put(`http://localhost:3004/update-job/${job.id}`, jobData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            }
-            ).then((res) => {
-                console.log(res.data);
-                if (res.data.status == true) {
-                    alert("update successfully.")
-                } else {
-                    alert("error ... not update.")
-
-                }
-            })
-            console.log(jobData);
-
-        }
-
+    const navigate = useNavigate();
+const handleSubmit = () =>{
+    const jobData = {
+        title: title, image: image, location: location, description: description, salary: salary, positiontype: positiontype, category: category, education: education,
+         responsibility: responsibility, company: company, mobilenumber: mobilenumber, email: email   
     }
+    axios.put("http://localhost:3004/update-job/"+id,jobData,{
+       headers:{
+        'Content-Type':'multipart/form-data'
+       } 
+    }
+    ).then((res)=>{
+        console.log(res.data)
+        if(res.data.status == true){
+            alert("data update successfully");
+            navigate("/admin/jobsAdmin")
+        } else {
+            if(res.data.status == false){
+                alert("something went wrong"); 
+            }
+        }
+    })
+}
+ useEffect(()=>{
+    axios.get("http://localhost:3004/job/"+id).then((res)=>{
+       console.log(res.data.jobs);
+       if(res.data.status == true){
+        setImage(res.data.jobs.image);
+        setTitle(res.data.jobs.title);
+        setLocation(res.data.jobs.location);
+        setDescription(res.data.jobs.description);
+        setCompany(res.data.jobs.company);
+        setCategory(res.data.jobs.category);
+        setEmail(res.data.jobs.email);
+        setSalary(res.data.jobs.salary);
+        setPositionType(res.data.jobs.positiontype);
+        setEducation(res.data.jobs.education);
+        setMobileNumber(res.data.jobs.mobilenumber);
+        setResponsibility(res.data.jobs.responsibility);
+       } 
+    })
+ },[]);
+
+
+
+    // const [job, setJob] = useState([]);
+    // useEffect(() => {
+    //     axios
+    //         .get(`http://localhost:3004/job/`+id)
+    //         .then((res) => {
+    //             setJob(res.data.jobs);
+    //         })
+    //         .catch((err) => {
+    //             console.log(err);
+    //         });
+    // }, []);
+
+    // const handleSubmit = () => {
+
+    //     // if (title && image && location && description && salary && positiontype && category && education && responsibility && company && mobilenumber && email) {
+    //         const jobData = {
+    //             title: title, image: image, location: location, description: description, salary: salary, positiontype: positiontype, category: category, education: education,
+    //             responsibility: responsibility, company: company, mobilenumber: mobilenumber, email: email
+    //         }
+    //         axios.put(`http://localhost:3004/update-job/`+id, jobData, {
+    //             headers: {
+    //                 'Content-Type': 'multipart/form-data'
+    //             }
+    //         }
+    //         ).then((res) => {
+    //             console.log(res.data);
+    //             if (res.data.status == true) {
+    //                 alert("update successfully.")
+    //             } else {
+    //                 alert("error ... not update.")
+
+    //             }
+    //         })
+    //         console.log(jobData);
+
+    //     // }
+
+    // }
 
     return (
         <div>
 
-           
              <form onSubmit={(e) => e.preventDefault()}>
                 <div style={{ width: "600px" }} className='mx-auto'>
                     <div className="mb-3">
                         <label htmlFor="formFile" class="form-label">Image</label>
-                        <input  onChange={(e) => { setImage(e.target.files[0]) }} className="form-control" type="file" id="formFile" />
+                        <input  onChange={(e) => { setImage(e.target.files[0]) }} className="form-control" type="file" id="formFile" accept='image/*'/>
                     </div>
                     <div className="mb-3">
                         <label htmlFor="title" className="form-label">Title</label>
-                        <input value={job.title} onChange={(e) => { setTitle(e.target.value) }} type="text" className="form-control" id="title" />
+                        <input value={title} onChange={(e) => { setTitle(e.target.value) }} type="text" className="form-control" id="title" />
                     </div>
                     <div className="mb-3">
                         <label htmlFor="description" className="form-label">Description</label>
-                        <input value={job.description} onChange={()=>{}} type="text" className="form-control" id="description" />
+                        <input value={description} onChange={(e)=>{setDescription(e.target.value)}} type="text" className="form-control" id="description" />
                     </div>
                     <div className="mb-3">
                         <label htmlFor="responsibility" className="form-label">Job Responsibility</label>
-                        <textarea value={job.responsibility} onChange={(e) => { setResponsibility(e.target.value) }} className="form-control" id="responsibility" rows="3"></textarea>
+                        <textarea value={responsibility} onChange={(e) => { setResponsibility(e.target.value) }} className="form-control" id="responsibility" rows="3"></textarea>
                     </div>
                     <div className=" mt-2 mb-3">
                     <label htmlFor="location" className="form-label">Job Location</label>
-                    <select value={job.location} onChange={(e) =>{setLocation(e.target.value)}} className="form-select border-0">
+                    <select value={location} onChange={(e) =>{setLocation(e.target.value)}} className="form-select border-0">
                                     <option selected>Location</option>
                                     <option value="lodhran">Lodhran</option>
                                     <option value="multan">Multan</option>
@@ -99,19 +136,19 @@ function UpdateJob() {
                     </div>
                     <div className="mb-3">
                         <label htmlFor="company" className="form-label">Company Name</label>
-                        <input value={job.company} onChange={(e) => { setCompany(e.target.value) }} type="text" className="form-control" id="company" />
+                        <input value={company} onChange={(e) => { setCompany(e.target.value) }} type="text" className="form-control" id="company" />
                     </div>
                     <div className="mb-3">
                         <label htmlFor="email" className="form-label">Company Email</label>
-                        <input value={job.email} onChange={(e) => { setEmail(e.target.value) }} type="text" className="form-control" id="email" />
+                        <input value={email} onChange={(e) => { setEmail(e.target.value) }} type="text" className="form-control" id="email" />
                     </div>
                     <div className="mb-3">
                         <label htmlFor="mobilenumber" className="form-label">Company Contact Number</label>
-                        <input value={job.mobilenumber} onChange={(e) => { setMobileNumber(e.target.value) }} type="text" className="form-control" id="mobilenumber" />
+                        <input value={mobilenumber} onChange={(e) => { setMobileNumber(e.target.value) }} type="text" className="form-control" id="mobilenumber" />
                     </div>
                     <div className="mb-3">
                     <label htmlFor="positiontype" className="form-label">Position Type</label> 
-                    <select value={job.positiontype} onChange={(e) =>{setPositionType(e.target.value)}} className="form-select border-0">
+                    <select value={positiontype} onChange={(e) =>{setPositionType(e.target.value)}} className="form-select border-0">
                                     <option selected>Position Type</option>
                                     <option value="full time">Full Time</option>
                                     <option value="part time">Part Time</option>
@@ -120,11 +157,11 @@ function UpdateJob() {
                     </div>
                     <div className="mb-3">
                         <label htmlFor="salary" className="form-label">Salary</label>
-                        <input value={job.salary} onChange={(e) => { setSalary(e.target.value) }} type="text" className="form-control" id="salary" />
+                        <input value={salary} onChange={(e) => { setSalary(e.target.value) }} type="text" className="form-control" id="salary" />
                     </div>
                     <div className="mb-3">
                         <label htmlFor="education" className="form-label">Education</label>
-                        <select value={job.education} onChange={(e) => { setEducation(e.target.value) }} className="form-select" id="education" >
+                        <select value={education} onChange={(e) => { setEducation(e.target.value) }} className="form-select" id="education" >
                             <option selected >Education</option>
                             <option value="matric">Matric</option>
                             <option value="intermediate">Intermediate</option>
@@ -135,7 +172,7 @@ function UpdateJob() {
                     </div>
                     <div className="mb-3">
                         <label htmlFor="category" className="form-label">Category</label>
-                        <select value={job.category} onChange={(e) => { setCategory(e.target.value) }} className="form-select" id="category" >
+                        <select value={category} onChange={(e) => { setCategory(e.target.value) }} className="form-select" id="category" >
                             <option selected >Category</option>
                             <option value="data entry">Data Entry</option>
                             <option value="web development">Web Development</option>
