@@ -51,7 +51,7 @@ function App() {
     <div className="App">
       
       <Header/>
-     
+   
     <Routes>
     <Route path='/' element={<Home/>}/>
        <Route path='/about' element={<AboutUs/>}/>
@@ -67,10 +67,12 @@ function App() {
        <Route path='/login' element={<Login/>}/>
        <Route path='/signup' element={<Signup/>}/>
        <Route path='/logout' element={<Logout />} />
+       
         
         <Route path='/admin' element={  <HomeAdmin /> }>
             <Route path='create' element={<CreateJobAdmin />} />
             <Route path='updateAdmin/:id' element={<UpdateJob/>}/>
+            <Route index element={<JobsAdmin />} />
             <Route path='jobsAdmin' element={<JobsAdmin />} />
             <Route path='details' element={<JobDetailAdmin />} />
         </Route>

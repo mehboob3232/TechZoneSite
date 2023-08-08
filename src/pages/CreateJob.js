@@ -62,6 +62,7 @@ function CreateJob() {
         pauseOnHover={false}
         theme="light"
       />
+        <h3 className='text-center' style={{color:"#00b37a"}}>Add New Job</h3>
             <form onSubmit={(e) => e.preventDefault()}>
                 <div style={{ width: "600px" }} className='mx-auto'>
                     <div className="mb-3">
