@@ -38,6 +38,8 @@ import SearchJob from './pages/SearchJob';
 import OnlyAuth from './components/OnlyAuth';
 import JobsAdmin from './pages/admin/JobsAdmin';
 import UpdateJob from './pages/admin/UpdateJob';
+import ApplicationAdmin from './pages/admin/ApplicationAdmin';
+import UserAdmin from './pages/admin/UserAdmin';
 
 
 
@@ -74,7 +76,8 @@ function App() {
             <Route path='updateAdmin/:id' element={<UpdateJob/>}/>
             <Route index element={<JobsAdmin />} />
             <Route path='jobsAdmin' element={<JobsAdmin />} />
-            <Route path='details' element={<JobDetailAdmin />} />
+            <Route path='applications' element={<ApplicationAdmin />} />
+            <Route path='users' element={<UserAdmin />} />
         </Route>
 
     </Routes>

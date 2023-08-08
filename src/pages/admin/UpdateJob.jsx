@@ -104,7 +104,7 @@ const handleSubmit = () =>{
 
     return (
         <div>
-
+  <h3 className='text-center' style={{color:"#00b37a"}}>Update Job</h3>
              <form onSubmit={(e) => e.preventDefault()}>
                 <div style={{ width: "600px" }} className='mx-auto'>
                     <div className="mb-3">

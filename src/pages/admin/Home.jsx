@@ -17,10 +17,10 @@ const Home = () => {
               <NavLink className="link1" to="/admin/jobsAdmin">Jobs</NavLink>
               </li>
               <li>
-              <NavLink className="link1" to="#">All Applications</NavLink>
+              <NavLink className="link1" to="/admin/applications">All Applications</NavLink>
               </li>
               <li>
-              <NavLink className="link1" to="#">All Users</NavLink>
+              <NavLink className="link1" to="/admin/users">All Users</NavLink>
               </li>
             </ul>
           </div>
