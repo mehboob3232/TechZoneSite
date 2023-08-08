@@ -9,16 +9,16 @@ function Footer() {
                     <div className="row g-5">
                         <div className="col-lg-3 col-md-6">
                             <h5 className="text-white mb-4">Tech Zone</h5>
-                            <a className="btn btn-link text-white-50" href="">About Us</a>
-                            <a className="btn btn-link text-white-50" href="">Contact Us</a>
+                            <a className="btn btn-link text-white-50" href="about">About Us</a>
+                            <a className="btn btn-link text-white-50" href="contact">Contact Us</a>
                             <a className="btn btn-link text-white-50" href="">Our Services</a>
                             <a className="btn btn-link text-white-50" href="">Privacy Policy</a>
                             <a className="btn btn-link text-white-50" href="">Terms & Condition</a>
                         </div>
                         <div className="col-lg-3 col-md-6">
                             <h5 className="text-white mb-4">Quick Links</h5>
-                            <a className="btn btn-link text-white-50" href="">About Us</a>
-                            <a className="btn btn-link text-white-50" href="">Contact Us</a>
+                            <a className="btn btn-link text-white-50" href="about">About Us</a>
+                            <a className="btn btn-link text-white-50" href="contact">Contact Us</a>
                             <a className="btn btn-link text-white-50" href="">Our Services</a>
                             <a className="btn btn-link text-white-50" href="">Privacy Policy</a>
                             <a className="btn btn-link text-white-50" href="">Terms & Condition</a>
@@ -54,7 +54,7 @@ function Footer() {
                             </div>
                             <div className="col-md-6 text-center text-md-end">
                                 <div className="footer-menu">
-                                    <a href="">Home</a>
+                                    <a href="/">Home</a>
                                     <a href="">Cookies</a>
                                     <a href="">Help</a>
                                     <a href="">FQAs</a>
