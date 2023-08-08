@@ -6,25 +6,25 @@ const Home = () => {
   return (
     <>
       <h1 className='text-center mt-2' style={{ color: "#00b37a" }}>Admin Dashboard</h1>
-      <div className="container mt-5">
+      <div className="container-fluid mt-5">
         <div className="row">
-          <div className="col-md-3 ">
-            <ul className='admin-links flex-column '>
+          <div className="col-md-2 navadmin ">
+            <ul className='adminnav' type="none">
               <li>
-              <NavLink className="link1" to="/admin/create">CreateJob</NavLink>
+              <NavLink className="adminLink" to="/admin/create">CreateJob</NavLink>
               </li>
               <li>
-              <NavLink className="link1" to="/admin/jobsAdmin">Jobs</NavLink>
+              <NavLink className="adminLink" to="/admin/jobsAdmin">Jobs</NavLink>
               </li>
               <li>
-              <NavLink className="link1" to="/admin/applications">All Applications</NavLink>
+              <NavLink className="adminLink" to="/admin/applications">All Applications</NavLink>
               </li>
               <li>
-              <NavLink className="link1" to="/admin/users">All Users</NavLink>
+              <NavLink className="adminLink" to="/admin/users">All Users</NavLink>
               </li>
             </ul>
           </div>
-          <div className="col-md-9">
+          <div className="col-md-10">
             <div className='admin-pages'>
               <Outlet />
             </div>

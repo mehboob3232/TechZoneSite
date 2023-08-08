@@ -425,29 +425,28 @@
 
 
 /* admin dashboard */
-/* .admin-links{
-border: 2px solid #00b37a;
-
-} */
-.admin-links li:hover{
-  border: 1px solid #00b37a;
-    background-color: #00B074;
-    border-radius: 5px;
+.adminnav{
+    padding: 0px !important;
+    margin: 0px !important;
+}
+.adminnav > li {
+    padding: 6px;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 20px;
+    margin: 8px;
     
 }
-.admin-links li {
-    list-style-type: none;
-     padding: 10px 0px;
-     font-weight: bold;
-     font-size: 18px;
-     text-align: center;
-}
-.admin-links li .link1{
-    padding: 10px 0px;
-}
-.admin-links li .link1:hover{
+.adminnav > li:hover {
+    background-color:rgb(0, 179, 122);
     color: white;
     
 }
-
+.adminnav > li >.NavLink:hover {
+    color: white;
+    
+}
+.navadmin{
+    
+}
 
