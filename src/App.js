@@ -63,7 +63,7 @@ function App() {
        <Route path='/category' element={<Category/>}/>
        <Route path='/jobcategory' element={<JobCategory/>}/>
        <Route path='/jobdetail/:id' element={<JobDetail/>}/>
-       <Route path='/applyjob/:id' element={<OnlyAuth><ApplyJob/></OnlyAuth>}/>
+       <Route path='/applyjob/:id' element={<ApplyJob/>}/>
        <Route path='/createjob' element={<CreateJob/>}/>
        <Route path='/search' element={<Search/>}/>
        <Route path='/searchjob' element={<SearchJob/>}/>
