@@ -77,12 +77,12 @@ function JobsAdmin() {
                                         <td>{job.salary}</td>
                                         <td>{job.positiontype}</td>
                                         <td>
-                                            <button onClick={() => { deleteJob(job.id)}}
+                                            <button onClick={() => { deleteJob(job._id)}}
                                                 className="btn btn-danger"style={{ width: "100px", borderRadius: "5px",marginBottom:"8px" }} >
                                                 Delete
                                             </button>
                                             <br />
-                                            <button className='btn btn-info' style={{ width: "100px", borderRadius: "5px" }} ><Link className='text-white' to={`/admin/updateAdmin/${job.id}`}>update</Link></button>
+                                            <button className='btn btn-info' style={{ width: "100px", borderRadius: "5px" }} ><Link className='text-white' to={`/admin/updateAdmin/${job._id}`}>update</Link></button>
 
                                         </td>
                                     </tr>
