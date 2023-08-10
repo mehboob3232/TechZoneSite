@@ -17,9 +17,6 @@ const Home = () => {
               <NavLink className="adminLink" to="/admin/jobsAdmin">Jobs</NavLink>
               </li>
               <li>
-              <NavLink className="adminLink" to="/admin/applications">All Applications</NavLink>
-              </li>
-              <li>
               <NavLink className="adminLink" to="/admin/users">All Users</NavLink>
               </li>
             </ul>

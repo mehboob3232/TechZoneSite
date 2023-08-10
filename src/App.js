@@ -23,7 +23,7 @@ import { AuthContext } from './context/AuthContext';
 // admin routes
 import HomeAdmin from './pages/admin/Home';
 import CreateJobAdmin from "./pages/admin/Create"
-import JobDetailAdmin from "./pages/admin/Details"
+
 import OnlyAdminAuth from './components/OnlyAdmin';
 
 //the
@@ -38,7 +38,6 @@ import SearchJob from './pages/SearchJob';
 import OnlyAuth from './components/OnlyAuth';
 import JobsAdmin from './pages/admin/JobsAdmin';
 import UpdateJob from './pages/admin/UpdateJob';
-import ApplicationAdmin from './pages/admin/ApplicationAdmin';
 import UserAdmin from './pages/admin/UserAdmin';
 import UpdateUser from './pages/admin/UpdateUser';
 
@@ -77,7 +76,6 @@ function App() {
             <Route path='updateAdmin/:id' element={<UpdateJob/>}/>
             <Route index element={<JobsAdmin />} />
             <Route path='jobsAdmin' element={<JobsAdmin />} />
-            <Route path='applications' element={<ApplicationAdmin />} />
             <Route path='users' element={<UserAdmin />} />
             <Route path='updateuser/:id' element={<UpdateUser />} />
         </Route>
