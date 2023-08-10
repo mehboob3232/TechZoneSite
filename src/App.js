@@ -26,7 +26,7 @@ import CreateJobAdmin from "./pages/admin/Create"
 import JobDetailAdmin from "./pages/admin/Details"
 import OnlyAdminAuth from './components/OnlyAdmin';
 
-//theme
+//the
 import "primereact/resources/themes/lara-light-indigo/theme.css";     
     
 //core
